@@ -4,42 +4,8 @@
 
 
 @import "vars";
+@import "extends";
 
-%container {
-  width: 90%;
-  margin: auto;
-  padding:1% 0;
-}
-
-
-%flexDisplay {
-  display: flex;
-  justify-content:space-between;
-}
-
-%btn-more {
-  margin-top: 30px;
-  border-radius: 4px;
-  border: 1.5px solid $mainColor;
-  padding: 10px 20px;
-  margin-bottom: 40px;
-  font-size: 12px;
-  font-weight: bold;
-  color:$mainColor;
-  cursor: pointer;
-  background: #fff;
-  transition: background 400ms ease;
-
-  &:hover {
-  background: #e8effa;
-} }
-
-
- %all-titles-font {
-   font-family: 'Roboto Slab', serif;
-   font-weight: bold;
-   color: #000;
- }
 
 *{
   margin: 0;
@@ -58,36 +24,80 @@ body {
   .all{
     display: flex;
     position: relative;
-
+    // justify-content: space-between;
+    float: left;
   }
 .hidden-menu {
+  float: left;
   width: 18%;
   z-index: 0;
   position: absolute;
   width: 18%;
   background: #f5f6f7;
   overflow: none;
+  #close_btn {
+    float: right;
+    color: $mainColor;
+    font-size: 0px; /////////******************!!!!!!!!!!!!!!!!!!!
+  }
+  @media (max-width: 955px) {
+    // position: absolute;
+    left: -300px;
+    z-index: 2;
+    width: 22%;
+    overflow: none;
+    // #close_btn {
+    //   font-size: 20px;
+    //   cursor: pointer;
+    // }
+  }
+  @media (min-width: 488px ) and (max-width: 700px) {
+    left: -300px;
+    z-index: 100;
+    width: 30%!important;
+    overflow: none;
+  }
+  @media (max-width: 487px) {
+    left: -300px;
+    z-index: 100;
+    width: 50%!important;
+    #close_btn {
+      font-size: 20px;
+      cursor: pointer;
+    }
 
-
+  }
   .search {
     background: #eff1f2;
     padding: 15px;
-    float: right;
+    float: left;
     width: 100%;
-    }
 
-  input {
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    outline: none;
-    padding: 5px;
-    margin-right: 20px;
-    font-size: 13px;
-    float: right;
-    text-indent: 5px;
-    width: 200px;
+    input {
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      outline: none;
+      padding: 5px;
+      margin-right: 20px;
+      font-size: 13px;
+      float: left;
+      text-indent: 5px;
+      width: 190px;
+
+      @media (min-width: 1800px) {
+        width: 300px;
+      }
+      @media (min-width: 1170px) and (max-width: 1800px) {
+        width: 200px;
+      }
+      @media (max-width: 1222px) {
+        width: 150px;
+      }
+    }
   }
   .sections{
+    // float: left;
+    position: relative;
     padding-top: 90px;
     margin:0 20px;;
     h4 {
@@ -111,24 +121,24 @@ body {
 
     .section-menu {
 
-    li {
-      list-style: none;
-    }
-
-    a {
-      color: #212325;
-      @extend %all-titles-font;
-      font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 400ms ease;
-
-      &:hover {
-        color: $mainColor;
+      li {
+        list-style: none;
       }
-    }
+
+      a {
+        color: #212325;
+        @extend %all-titles-font;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 400ms ease;
+
+        &:hover {
+          color: $mainColor;
+        }
+      }
   }
 
     .inform-about-us{
@@ -141,6 +151,7 @@ body {
         }
       }
       .inf {
+        padding-right: 5px;
         img {
           width: 100%;
           height: 120px;
@@ -159,6 +170,24 @@ body {
           color: $textColor;
           font-size: 14px;
           margin-top: 15px;
+        }
+      }
+      @media (min-width: 1690px) {
+        .hidden-menu {
+          width: 18%;
+        }
+        .inf {
+          img {
+            height: 160px;
+            // width: 300px;
+          }
+        }
+      }
+      @media (max-width: 1111px) {
+        .inf {
+          img {
+            height: 100px;
+          }
         }
       }
       button {
@@ -206,24 +235,76 @@ body {
     }
 }
 }
-
+.menu_visible {
+  @media (max-width: 955px) {
+    left: 0px;
+    z-index: 2;
+    width: 22%;
+    overflow: hidden;
+    transition: all 0.8s ease;
+  }
+}
 .menu_show {
 
+  @media (min-width: 487px) {
   width: 80%!important;
   transform: translateX(22%);
   .img-holder {
     transform: scale(0.9);
   }
 }
+  @media (min-width: 701px) and (max-width: 955px) {
+    width: 70%!important;
+    margin-left: 50px;
+    .small-articles {
+      img {
+        width: 250px!important;
+        @media (max-width: 746px) {
+          width: 200px!important;
+          height: 130px!important;
+        }
+      }
+    }
+  }
+  @media (min-width: 488px) and (max-width: 700px) {
+    width: 60%!important;
+    margin-left: 100px;
+  }
+
+  @media (min-width: 571px) and (max-width: 650px) {
+    .img {
+      height: 200px!important;
+    }
+  }
+  @media (max-width: 570px) {
+    .img {
+      width: 350px;
+      height: 170px!important;
+      img {
+        width: 300px!important;
+      }
+    }
+  }
+
+}
 
 .all-page {
   float: right;
   width: 100%;
+
+  // align-self: flex-start;
+
+  position: relative;
   z-index: 99;
   background: #fff;
   overflow: none;
   transition: all 800ms ease;
   padding-top: 15px;
+  @media (max-width: 955px) {
+    z-index: 1;
+    // margin-left: 50px;
+    // width: 78%;
+  }
 }
 
 .menu {
@@ -284,7 +365,7 @@ header {
 
     button {@extend %btn-more;}
     .img-holder{
-      width: auto;
+      width: 700px;
       transition: all 800ms ease;
     }
     img {
@@ -293,6 +374,14 @@ header {
       border-radius: 5px;
       transition: all 800ms ease;
     }
+    // @media (min-width: 1690px) {
+    //   .img-holder {
+    //     width: 500px;
+    //     height: 400px;
+    //     border-radius: 5px;
+    //     overflow: hidden;
+    //   }
+    // }
   }
   .main-content {
     border-top: 1.5px solid #ccc;
@@ -324,18 +413,24 @@ header {
 
       width: 100%;
 
-
-
       .img {
         width: 100%;
         height: 250px;
         border-radius: 5px;
         overflow: hidden;
-
       }
+      @media (min-width: 1690px) {
+        .img {
+          width: 100%;
+          height: 300px;
+          border-radius: 5px;
+          overflow: hidden;
+        }
+      }
+
       img {
         width: 100%;
-        height: 250px;
+        height: 100%;
         border-radius: 5px;
         cursor: pointer;
         transition: all .5s ease-out;
@@ -346,9 +441,12 @@ header {
         &:hover {
          transform: scale(1.05);
          }
+         @media (max-width: 500) {
+           width: 150px!important;
+         }
       }
 
-      .mg {padding-top:40px;}
+      .img {padding-top:40px;}
 
       #last{
         padding-bottom: 40px;
@@ -385,11 +483,10 @@ header {
 
     .small-articles {
       //@extend %flexDisplay;
-
       border-top: 1.5px solid #d4d4d4;
       padding-top: 60px;
       margin-top: 50px;
-    }
+
     h5 {
       @extend %all-titles-font;
       font-size: 18px;
@@ -403,11 +500,6 @@ header {
 
     button {@extend %btn-more;}
 
-    .img {
-      height: 150px;
-      width: 249px;
-
-    }
     img {
       height: 150px;
       width: 100%;
@@ -420,7 +512,27 @@ header {
         -moz-box-shadow: 0px 0px 22px -3px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 22px -3px rgba(0,0,0,0.75);
       }
+      @media (min-width: 1690px) {
+        height: 190px;
+      }
+      @media (max-width: 1250px ) {
+        height: 120px;
+      }
+      @media (min-width: 802px) and (max-width: 991px ) {
+        width: 370px;
+        height: 190px;
+      }
+      @media (min-width: 501px) and (max-width: 801px ) {
+        width: 270px;
+        height: 170px;
+      }
+      @media (max-width: 500px ) {
+        width: 290px;
+        height: 200px;
+      }
     }
+
+  }
 
   }//main-content
 
@@ -506,26 +618,9 @@ header {
     #article_5 {padding-bottom: 40px;}
   }
 
- @media (min-width: 1022px) and (max-width: 1208px){
-  .hidden-menu input {
-    width: 150px;
-    float: left;
-  }
-}
-
-@media (min-width: 1209px){
- .hidden-menu input {
-   width: 180px;
-   float: left;
-
- }
-}
-
-@media (max-width: 500px) {
+@media (max-width: 570px) {
   .articles img{
     height: 180px!important;
-  }
-  .small-articles img {
-    height: 100px!important;
+    width: 450px!important;
   }
 }

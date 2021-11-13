@@ -13,6 +13,7 @@
 <div class="all">
   <div class="hidden-menu" id="hidden-menu">
     <div class="search">
+      <i class="fas fa-times" id="close_btn"></i>
       <input type="search" placeholder="Поиск">
     </div>
       <div class="sections">
@@ -67,7 +68,7 @@
       </div>
     </div>
 
-    </div>
+  </div>
 <div class="all-page" id="show-menu" >
   <header>
     <span class="menu">
@@ -162,7 +163,7 @@
 
   <div class="small-articles">
     <div class="row">
-      <div class="col-6 col-lg">
+      <div class="col-sm-6 col-lg col-12">
         <div><img src="img/front-end.png"></div>
         <h5>Front-end</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia aliquam, dolores? </p>
@@ -170,28 +171,28 @@
 
       </div>
 
-      <div class="col-6 col-lg">
+      <div class="col-sm-6 col-lg col-12">
         <div><img src="img/swift.jpg"></div>
         <h5>Swift</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia aliquam, dolores? </p>
         <button class="read">ДАЛЕЕ</button>
 
       </div>
-      <div class="col-6 col-lg">
+      <div class="col-sm-6 col-lg col-12">
         <div><img src="img/python.jpg"></div>
         <h5>Python</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia aliquam, dolores?  </p>
         <button class="read">ДАЛЕЕ</button>
 
       </div>
-      <div class="col-6 col-lg">
+      <div class="col-sm-6 col-lg col-12">
         <div><img src="img/angular.jpg"></div>
         <h5>Angular</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia aliquam, dolores?  </p>
         <button class="read">ДАЛЕЕ</button>
 
       </div>
-      <div class="col-6 col-lg">
+      <div class="col-sm-6 col-lg col-12">
         <div><img src="img/php.jpg"></div>
         <h5>PHP & MySQL</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia aliquam, dolores? </p>
@@ -247,6 +248,11 @@
 <script>
   $("span.menu").on('click', function() {
     $("#show-menu").toggleClass('menu_show');
+    $("#hidden-menu").toggleClass("menu_visible");
+  })
+  $("#close_btn").on('click', function() {
+    $("#hidden-menu").removeClass("menu_visible");
+    $("#show-menu").removeClass('menu_show');
   })
 
 </script>
